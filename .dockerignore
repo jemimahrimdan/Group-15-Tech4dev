@@ -1,0 +1,16 @@
+node_modules
+npm-debug.log
+dist
+.env
+.env.test
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+.git
+.gitignore
+Dockerfile
+docker-compose.yml
+coverage
+.vscode
+.idea
