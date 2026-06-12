@@ -1,0 +1,15 @@
+{$DOMAIN}:80, {$DOMAIN}:443 {
+    reverse_proxy app:3001
+
+    header / {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        X-XSS-Protection "1; mode=block"
+        Referrer-Policy "strict-origin-when-cross-origin"
+    }
+
+    log {
+        output file /data/logs/access.log
+    }
+}
