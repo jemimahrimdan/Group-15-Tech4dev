@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  postgres-dev:
+    image: postgres:16-alpine
+    container_name: afri-tribe-postgres-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5435:5432"
+    volumes:
+      - afri-tribe-dev-data:/var/lib/postgresql/data
+ 
+
+  postgres-test:
+    image: postgres:16-alpine
+    container_name: afri-tribe-postgres-test
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5436:5432"
+    volumes:
+      - afri-tribe-test-data:/var/lib/postgresql/data
+    
+
+volumes:
+  afri-tribe-dev-data:
+  afri-tribe-test-data:
